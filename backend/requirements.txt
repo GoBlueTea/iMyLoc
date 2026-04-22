@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pymobiledevice3
+websockets
+pydantic

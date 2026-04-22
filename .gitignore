@@ -1,0 +1,21 @@
+# Node
+node_modules/
+dist/
+dist-electron/
+release/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+build/
+dist/
+*.spec
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Zips
+*.zip
