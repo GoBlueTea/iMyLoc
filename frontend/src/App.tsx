@@ -71,11 +71,12 @@ const t = {
     locateNow: '立即定位',
     clearLoc: '解除定位',
     speedInfo: '移動速度 (km/h)',
-    walk: '步行',
+    walk: '走路',
     bike: '單車',
     drive: '開車',
-    customSpeed: '自訂速度',
-    routeTitle: '路線與自動移動',
+    customSpeed: '自訂速度:',
+    joystickLabel: '方向遙桿',
+    routeTitle: '路線功能',
     waypoints: '中繼點數量',
     totalDist: '總距離 (公里)',
     genRoute: '產生隨機路線',
@@ -110,8 +111,9 @@ const t = {
     walk: 'Walk',
     bike: 'Bike',
     drive: 'Drive',
-    customSpeed: 'Custom Speed',
-    routeTitle: 'Route & Auto Move',
+    customSpeed: 'Custom (km/h):',
+    joystickLabel: 'Joystick',
+    routeTitle: 'Routing Features',
     waypoints: 'Waypoints',
     totalDist: 'Total Distance (km)',
     genRoute: 'Random Route',
@@ -601,9 +603,10 @@ export default function App() {
               disabled={deviceStatus === 'disconnected'}
             />
           </div>
-          <div className="joystick-wrapper" style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', pointerEvents: deviceStatus === 'disconnected' ? 'none' : 'auto', opacity: deviceStatus === 'disconnected' ? 0.5 : 1 }}>
+          <div className="joystick-wrapper" style={{ marginTop: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', pointerEvents: deviceStatus === 'disconnected' ? 'none' : 'auto', opacity: deviceStatus === 'disconnected' ? 0.5 : 1 }}>
+            <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-main)', opacity: 0.8 }}>{txt.joystickLabel}</span>
             <Joystick
-              size={75}
+              size={55}
               sticky={false}
               baseColor="rgba(255,255,255,0.1)"
               stickColor="var(--accent)"
