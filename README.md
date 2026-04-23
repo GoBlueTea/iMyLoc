@@ -2,6 +2,7 @@
   <img src="iMyLoc-Logo.ico" width="100" />
   <h1>iMyLoc</h1>
   <p><b>Advanced iOS Virtual Location & GPS Spoofing Tool</b></p>
+  <h3><a href="https://github.com/GoBlueTea/iMyLoc/releases">📥 下載最新版本 / Download Latest Release 📥</a></h3>
 </div>
 
 ---
