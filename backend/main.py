@@ -12,6 +12,10 @@ from pymobiledevice3.services.dvt.instruments.location_simulation import Locatio
 from pymobiledevice3.services.simulate_location import DtSimulateLocation
 
 import os
+import sys
+
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 logging.basicConfig(
@@ -161,16 +165,24 @@ class Location(BaseModel):
 
 @app.post("/api/location")
 async def set_location(loc: Location):
-    connected = await connect_device()
-    if connected and device_state.sim:
-        try:
-            await device_state.sim.set(loc.lat, loc.lng)
+    lat = loc.lat
+    lng = (loc.lng + 180) % 360 - 180
+    logger.info(f"Attempting to set location immediately to {lat}, {lng} (original lng: {loc.lng})")
+    try:
+        connected = await connect_device()
+        logger.info(f"set_location connection check: connected={connected}, sim_object={device_state.sim is not None}")
+        if connected and device_state.sim:
+            logger.info("Executing device_state.sim.set(...)")
+            await device_state.sim.set(lat, lng)
+            logger.info("Location set immediately successfully")
             return {"status": "success"}
-        except Exception as e:
-            logger.error(f"Location set error: {e}")
-            device_state.is_connected = False
-            return {"status": "error", "message": str(e)}
-    return {"status": "error", "message": "Device not connected"}
+        else:
+            logger.error(f"Cannot set location: connected={connected}, sim_object={device_state.sim is not None}")
+            return {"status": "error", "message": "Device not connected"}
+    except Exception as e:
+        logger.error(f"Location set error during set_location: {e}", exc_info=True)
+        device_state.is_connected = False
+        return {"status": "error", "message": str(e)}
 
 @app.post("/api/location/clear")
 async def clear_location():
@@ -192,13 +204,14 @@ async def websocket_endpoint(websocket: WebSocket):
 
     async def consumer():
         while True:
-            lat, lng = await queue.get()
+            lat, raw_lng = await queue.get()
+            lng = (raw_lng + 180) % 360 - 180
             try:
                 connected = await connect_device()
                 if connected and device_state.sim:
                     await device_state.sim.set(lat, lng)
             except Exception as e:
-                logger.error(f"WS Location set error: {e}")
+                logger.error(f"WS Location set error: {e}", exc_info=True)
                 device_state.is_connected = False
 
     consumer_task = asyncio.ensure_future(consumer())
