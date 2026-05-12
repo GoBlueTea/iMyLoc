@@ -2,6 +2,9 @@
   <img src="iMyLoc-Logo.ico" width="100" />
   <h1>iMyLoc</h1>
   <p><b>Advanced iOS Virtual Location & GPS Spoofing Tool</b></p>
+  <p>
+    <a href="https://www.virustotal.com/gui/file/44deba9eee42bff0a9afe926ee103931c0c00d41d5c995d1428a2fba9b19be3c/detection"><img src="https://img.shields.io/badge/VirusTotal-Clean-brightgreen?logo=virustotal" alt="VirusTotal Scan" /></a>
+  </p>
   <h3><a href="https://github.com/GoBlueTea/iMyLoc/releases">下載最新版本 / Download Latest Release</a></h3>
 </div>
 
@@ -21,6 +24,8 @@
    內建即時螢幕遙桿（Joystick），讓您可以像玩遊戲一樣，360 度手動控制 iOS 定位的移動方向。非常適合需要精細走位或是微調座標的使用情境！
 4. **免費免安裝綠色軟體 (Free & Portable)**
    本軟體完全免費且無需安裝，下載即可直接使用。不會在系統留下多餘痕跡，帶給您最乾淨、輕量的使用體驗。
+5. **安全無毒 (Virus-Free)**
+   通過 VirusTotal 多重防毒引擎掃描，保證乾淨無惡意程式。[查看 VirusTotal 掃描報告](https://www.virustotal.com/gui/file/44deba9eee42bff0a9afe926ee103931c0c00d41d5c995d1428a2fba9b19be3c/detection)
 
 ### 系統前置作業 (必讀)
 
@@ -53,6 +58,8 @@
    Take full manual control of your geographical positioning! Use the built-in on-screen Joystick to steer your location in 360 degrees in real-time. Perfect for precision routing and micro-adjustments on the map.
 4. **Free & Portable Software**
    Completely free of charge with no installation required. You can run it directly as a portable standalone tool, keeping your system clean without leaving unnecessary footprints.
+5. **Secure & Virus-Free**
+   Verified by VirusTotal multi-engine antivirus scanning to ensure 100% clean and malware-free software. [View VirusTotal Scan Report](https://www.virustotal.com/gui/file/44deba9eee42bff0a9afe926ee103931c0c00d41d5c995d1428a2fba9b19be3c/detection)
 
 ### Prerequisites & Setup (Required)
 
