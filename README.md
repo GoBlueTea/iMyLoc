@@ -7,7 +7,7 @@
 
 ---
 
-## 繁體中文說明
+## 說明
 
 **iMyLoc** 是一個專為 iOS 裝置設計的虛擬定位工具，無需越獄（Jailbreak）即可實現全域級別的 GPS 定位修改。此工具透過電腦與 iOS 裝置進行本地通訊，提供安全且穩定的定位模擬服務。
 
@@ -39,7 +39,7 @@
 
 ---
 
-## English Documentation
+## Documentation
 
 **iMyLoc** is a powerful virtual location and GPS spoofing tool designed exclusively for iOS devices. It requires no jailbreak and leverages local USB communication protocols to deploy secure, system-wide geographic coordinate overrides.
 
